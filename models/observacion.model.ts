@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const observacionSchema: Schema<IObservacion> = new Schema({
-    idObservacion:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     poblacion:{
         type: Number,
         required: [true, 'Obligatorio']
@@ -36,7 +32,6 @@ const observacionSchema: Schema<IObservacion> = new Schema({
 });
 
 interface IObservacion extends Document{
-    idObservacion: number;
     poblacion: number;
     cria: string;
     limpieza: string;

@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cosecha = void 0;
 const mongoose_1 = require("mongoose");
 const cosechaSchema = new mongoose_1.Schema({
-    idCosecha: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     tipo: {
         type: String,
         required: [true, 'Obligatorio']

@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Actividades = void 0;
 const mongoose_1 = require("mongoose");
 const actividadesSchema = new mongoose_1.Schema({
-    idActividades: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     actividad: {
         type: String,
         required: [true, 'Obligatorio']

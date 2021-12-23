@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const actividadesSchema: Schema<IActividades> = new Schema({
-    idActividades:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     actividad:{
         type: String,
         required: [true, 'Obligatorio']
@@ -28,7 +24,6 @@ const actividadesSchema: Schema<IActividades> = new Schema({
 });
 
 interface IActividades extends Document{
-    idActividades: number;
     actividad: string;
     productoUtilizado: string;
     cantidad: number;

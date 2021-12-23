@@ -6,22 +6,10 @@ import { verificaToken } from '../middlewares/autentication';
 
 const userRoutes = Router();
 
-userRoutes.post('/prueba', (req: Request, res: Response)=>{
-    const user = {
-        email   : req.body.email,
-        password: req.body.password
-    }
-    res.json({
-        ok: true,
-        mensaje: 'Operación exitosa',
-        user
-    })
-})
-
 //LOGIN
 userRoutes.post('/login', (req: Request, res: Response) => {
     const body = req.body;
-    Usuario.findOne({ usuario: body.username }, (err: any, userDB: any) => {
+    Usuario.findOne({ email: body.email }, (err: any, userDB: any) => {
         if (err) throw err;
         if (!userDB) {
             return res.json({
@@ -32,11 +20,7 @@ userRoutes.post('/login', (req: Request, res: Response) => {
         if (userDB.compararPassword(body.password)) {
             const tokenUser = Token.getJwtToken({
                 _id: userDB._id,
-                usuario: userDB.usuario,
-                nombre: userDB.nombre,
-                apellido: userDB.apellido,
-                direccion: userDB.direccion,
-                telefono: userDB.telefono
+                email: userDB.usuario
             });
             res.json({
                 ok: true,
@@ -48,6 +32,26 @@ userRoutes.post('/login', (req: Request, res: Response) => {
                 mensaje: 'Contraseña inválida'
             });
         }
+    });
+});
+
+//CREAR USUARIO
+userRoutes.post('/new',(req: Request, res: Response) => {
+    const user = {
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 10),
+    };
+
+    Usuario.create(user).then(userDB => {
+        res.json({
+            ok: true,
+            user: userDB
+        })
+    }).catch(err => {
+        res.json({
+            ok: false,
+            err
+        });
     });
 });
 

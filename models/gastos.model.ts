@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const gastosSchema: Schema<IGastos> = new Schema({
-    idGastos:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     concepto:{
         type: String,
         required: [true, 'Obligatorio']
@@ -20,7 +16,6 @@ const gastosSchema: Schema<IGastos> = new Schema({
 });
 
 interface IGastos extends Document{
-    idGastos: number;
     concepto: string;
     cantidad: number;
     fecha: string;

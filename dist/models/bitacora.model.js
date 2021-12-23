@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bitacora = void 0;
 const mongoose_1 = require("mongoose");
 const bitacoraSchema = new mongoose_1.Schema({
-    idBitacora: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     responsable: {
         type: String,
         required: [true, 'Obligatorio']

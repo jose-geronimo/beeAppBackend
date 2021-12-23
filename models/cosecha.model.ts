@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const cosechaSchema: Schema<ICosecha> = new Schema({
-    idCosecha:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     tipo:{
         type: String,
         required: [true, 'Obligatorio']
@@ -24,7 +20,6 @@ const cosechaSchema: Schema<ICosecha> = new Schema({
 });
 
 interface ICosecha extends Document{
-    idCosecha: number;
     tipo: string;
     cantidad: number;
     fecha: string;

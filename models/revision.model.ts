@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const revisionSchema: Schema<IRevision> = new Schema({
-    idRevision:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     fecha:{
         type: String,
         required: [true, 'Obligatorio']
@@ -32,7 +28,6 @@ const revisionSchema: Schema<IRevision> = new Schema({
 });
 
 interface IRevision extends Document{
-    idRevision: number;
     fecha: string;
     fechaSigRevision: string;
     descripcion: string;

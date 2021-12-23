@@ -7,10 +7,6 @@ exports.Usuario = void 0;
 const mongoose_1 = require("mongoose");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const usuarioSchema = new mongoose_1.Schema({
-    idUsuario: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     email: {
         type: String,
         unique: true,

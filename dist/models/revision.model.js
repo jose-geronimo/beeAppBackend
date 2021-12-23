@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Revision = void 0;
 const mongoose_1 = require("mongoose");
 const revisionSchema = new mongoose_1.Schema({
-    idRevision: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     fecha: {
         type: String,
         required: [true, 'Obligatorio']

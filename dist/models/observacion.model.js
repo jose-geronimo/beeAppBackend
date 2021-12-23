@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Observacion = void 0;
 const mongoose_1 = require("mongoose");
 const observacionSchema = new mongoose_1.Schema({
-    idObservacion: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     poblacion: {
         type: Number,
         required: [true, 'Obligatorio']

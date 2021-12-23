@@ -3,10 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Colmena = void 0;
 const mongoose_1 = require("mongoose");
 const colmenaSchema = new mongoose_1.Schema({
-    idColmena: {
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     numCaja: {
         type: Number,
         required: [true, 'Obligatorio']

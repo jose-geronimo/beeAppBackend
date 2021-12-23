@@ -1,10 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
 const bitacoraSchema: Schema<IBitacora> = new Schema({
-    idBitacora:{
-        type: Number,
-        required: [true, 'Obligatorio']
-    },
     responsable:{
         type: String,
         required: [true, 'Obligatorio']
@@ -32,7 +28,6 @@ const bitacoraSchema: Schema<IBitacora> = new Schema({
 });
 
 interface IBitacora extends Document{
-    idBitacora: number;
     responsable: string;
     ubicacion: string;
     numbitacora: number;

@@ -5,23 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const usuario_model_1 = require("../models/usuario.model");
+const bcrypt_1 = __importDefault(require("bcrypt"));
 const token_1 = __importDefault(require("../classes/token"));
 const userRoutes = (0, express_1.Router)();
-userRoutes.post('/prueba', (req, res) => {
-    const user = {
-        email: req.body.email,
-        password: req.body.password
-    };
-    res.json({
-        ok: true,
-        mensaje: 'Operación exitosa',
-        user
-    });
-});
 //LOGIN
 userRoutes.post('/login', (req, res) => {
     const body = req.body;
-    usuario_model_1.Usuario.findOne({ usuario: body.username }, (err, userDB) => {
+    usuario_model_1.Usuario.findOne({ email: body.email }, (err, userDB) => {
         if (err)
             throw err;
         if (!userDB) {
@@ -33,11 +23,7 @@ userRoutes.post('/login', (req, res) => {
         if (userDB.compararPassword(body.password)) {
             const tokenUser = token_1.default.getJwtToken({
                 _id: userDB._id,
-                usuario: userDB.usuario,
-                nombre: userDB.nombre,
-                apellido: userDB.apellido,
-                direccion: userDB.direccion,
-                telefono: userDB.telefono
+                email: userDB.usuario
             });
             res.json({
                 ok: true,
@@ -50,6 +36,24 @@ userRoutes.post('/login', (req, res) => {
                 mensaje: 'Contraseña inválida'
             });
         }
+    });
+});
+//CREAR USUARIO
+userRoutes.post('/new', (req, res) => {
+    const user = {
+        email: req.body.email,
+        password: bcrypt_1.default.hashSync(req.body.password, 10),
+    };
+    usuario_model_1.Usuario.create(user).then(userDB => {
+        res.json({
+            ok: true,
+            user: userDB
+        });
+    }).catch(err => {
+        res.json({
+            ok: false,
+            err
+        });
     });
 });
 exports.default = userRoutes;
