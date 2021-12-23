@@ -1,0 +1,55 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const usuario_model_1 = require("../models/usuario.model");
+const token_1 = __importDefault(require("../classes/token"));
+const userRoutes = (0, express_1.Router)();
+userRoutes.post('/prueba', (req, res) => {
+    const user = {
+        email: req.body.email,
+        password: req.body.password
+    };
+    res.json({
+        ok: true,
+        mensaje: 'Operación exitosa',
+        user
+    });
+});
+//LOGIN
+userRoutes.post('/login', (req, res) => {
+    const body = req.body;
+    usuario_model_1.Usuario.findOne({ usuario: body.username }, (err, userDB) => {
+        if (err)
+            throw err;
+        if (!userDB) {
+            return res.json({
+                ok: false,
+                mensaje: 'Usuario incorrecto'
+            });
+        }
+        if (userDB.compararPassword(body.password)) {
+            const tokenUser = token_1.default.getJwtToken({
+                _id: userDB._id,
+                usuario: userDB.usuario,
+                nombre: userDB.nombre,
+                apellido: userDB.apellido,
+                direccion: userDB.direccion,
+                telefono: userDB.telefono
+            });
+            res.json({
+                ok: true,
+                token: tokenUser
+            });
+        }
+        else {
+            return res.json({
+                ok: false,
+                mensaje: 'Contraseña inválida'
+            });
+        }
+    });
+});
+exports.default = userRoutes;
