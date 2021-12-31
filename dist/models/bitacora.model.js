@@ -28,4 +28,4 @@ const bitacoraSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Bitacora = (0, mongoose_1.model)('Bitacora', bitacoraSchema);
+exports.Bitacora = mongoose_1.model('Bitacora', bitacoraSchema);

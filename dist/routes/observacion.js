@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const observacion_model_1 = require("../models/observacion.model");
-const observationRoutes = (0, express_1.Router)();
+const observationRoutes = express_1.Router();
 //OBTENER OBSERVACION
 observationRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     observacion_model_1.Observacion.find()

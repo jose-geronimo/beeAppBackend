@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const actividades_model_1 = require("../models/actividades.model");
-const activityRoutes = (0, express_1.Router)();
+const activityRoutes = express_1.Router();
 //OBTENER ACTIVIDADES
 activityRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     actividades_model_1.Actividades.find()

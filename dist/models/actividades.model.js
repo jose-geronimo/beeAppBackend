@@ -24,4 +24,4 @@ const actividadesSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Actividades = (0, mongoose_1.model)('Actividades', actividadesSchema);
+exports.Actividades = mongoose_1.model('Actividades', actividadesSchema);

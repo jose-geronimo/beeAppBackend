@@ -16,4 +16,4 @@ const colmenaSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Colmena = (0, mongoose_1.model)('Colmena', colmenaSchema);
+exports.Colmena = mongoose_1.model('Colmena', colmenaSchema);

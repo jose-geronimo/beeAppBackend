@@ -10,6 +10,17 @@ import mongoose, { ConnectOptions } from "mongoose";
 import bodyParser from "body-parser";
 
 const server = new Server();
+const cors = require('cors');
+
+//CORS
+server.app.all("*", (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+server.app.use(cors());
 
 //BODY PARSER
 server.app.use( bodyParser.urlencoded({ extended: true }));
