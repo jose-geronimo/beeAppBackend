@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const bitacora_model_1 = require("../models/bitacora.model");
-const binnacleRoutes = express_1.Router();
+const binnacleRoutes = (0, express_1.Router)();
 //OBTENER BITACORA
 binnacleRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     bitacora_model_1.Bitacora.find()

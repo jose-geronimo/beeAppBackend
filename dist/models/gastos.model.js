@@ -16,4 +16,4 @@ const gastosSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Gastos = mongoose_1.model('Gastos', gastosSchema);
+exports.Gastos = (0, mongoose_1.model)('Gastos', gastosSchema);

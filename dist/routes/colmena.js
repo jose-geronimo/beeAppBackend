@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const colmena_model_1 = require("../models/colmena.model");
-const hiveRoutes = express_1.Router();
+const hiveRoutes = (0, express_1.Router)();
 //OBTENER COLMENA
 hiveRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     colmena_model_1.Colmena.find()

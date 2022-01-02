@@ -20,4 +20,4 @@ const cosechaSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Cosecha = mongoose_1.model('Cosecha', cosechaSchema);
+exports.Cosecha = (0, mongoose_1.model)('Cosecha', cosechaSchema);

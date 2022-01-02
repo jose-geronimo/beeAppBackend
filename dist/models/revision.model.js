@@ -28,4 +28,4 @@ const revisionSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     },
 });
-exports.Revision = mongoose_1.model('Revision', revisionSchema);
+exports.Revision = (0, mongoose_1.model)('Revision', revisionSchema);

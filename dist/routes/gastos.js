@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const gastos_model_1 = require("../models/gastos.model");
-const outgoingsRoutes = express_1.Router();
+const outgoingsRoutes = (0, express_1.Router)();
 //OBTENER BITACORA
 outgoingsRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     gastos_model_1.Gastos.find()

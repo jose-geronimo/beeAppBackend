@@ -32,4 +32,4 @@ const observacionSchema = new mongoose_1.Schema({
         required: [true, 'Obligatorio']
     }
 });
-exports.Observacion = mongoose_1.model('Observacion', observacionSchema);
+exports.Observacion = (0, mongoose_1.model)('Observacion', observacionSchema);

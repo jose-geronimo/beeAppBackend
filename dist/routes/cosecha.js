@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const autentication_1 = require("../middlewares/autentication");
 const cosecha_model_1 = require("../models/cosecha.model");
-const yieldRoutes = express_1.Router();
+const yieldRoutes = (0, express_1.Router)();
 //OBTENER COSECHA
 yieldRoutes.get('/all', autentication_1.verificaToken, (req, res) => {
     cosecha_model_1.Cosecha.find()
