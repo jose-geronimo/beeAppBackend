@@ -34,5 +34,4 @@ activityRoutes.post('/new', autentication_1.verificaToken, (req, res) => {
         });
     });
 });
-hola;
 exports.default = activityRoutes;

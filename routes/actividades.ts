@@ -35,6 +35,5 @@ activityRoutes.post('/new', verificaToken, (req: Request, res: Response) => {
         });
     });
 });
-hola
 
 export default activityRoutes;
