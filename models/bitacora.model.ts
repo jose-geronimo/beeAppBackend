@@ -20,6 +20,15 @@ const bitacoraSchema: Schema<IBitacora> = new Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
+    registro_numCaja:{
+        type: String
+    },
+    registro_numColmenaOrigen:{
+        type: String
+    },
+    registro_fechaCreacion:{
+        type: String
+    },
     actividades_actividad:{
         type: String,
         required: [true, 'Obligatorio']
@@ -28,28 +37,19 @@ const bitacoraSchema: Schema<IBitacora> = new Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
-    actividades_cantidad:{
-        type: Number
-    },
     actividades_gasto:{
         type: Number
     },
-    cosecha_tipo:{
+    salud_plagas:{
         type: String
     },
-    cosecha_cantidad:{
+    salud_productoUtilizado:{
         type: Number
     },
-    cosecha_fecha:{
+    salud_dosisAplicada:{
         type: String
     },
-    gastos_concepto:{
-        type: String
-    },
-    gastos_cantidad:{
-        type: Number
-    },
-    gastos_fecha:{
+    salud_gasto:{
         type: String
     },
     obervacion_poblacion:{
@@ -72,19 +72,25 @@ const bitacoraSchema: Schema<IBitacora> = new Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
-    revision_fecha:{
+    gastos_prod1:{
         type: String
     },
-    revision_fechaSigRevision:{
+    gastos_gasto1:{
         type: String
     },
-    revision_descripcion:{
+    gastos_prod2:{
         type: String
     },
-    revision_lugar:{
+    gastos_gasto2:{
         type: String
     },
-    revision_completado:{
+    produccion_tipoCosecha:{
+        type: Boolean
+    },
+    produccion_cantidadCosecha:{
+        type: Boolean
+    },
+    producccion_fechaCosecha:{
         type: Boolean
     },
     colmena:{
@@ -99,27 +105,29 @@ interface IBitacora extends Document{
     numbitacora: number;
     apiario: string;
     fecha: string;
+    registro_numCaja: string;
+    registro_numColmenaOrigen: string;
+    registro_fechaCreacion: string;
     actividades_actividad: string;
     actividades_productoUtilizado: string;
-    actividades_cantidad: number;
     actividades_gasto: number;
-    cosecha_tipo: string;
-    cosecha_cantidad: number;
-    cosecha_fecha: string;
-    gastos_concepto: string;
-    gastos_cantidad: number;
-    gastos_fecha: string;
+    salud_plagas: string;
+    salud_productoUtilizado: string
+    salud_dosisAplicada: string;
+    salud_gasto: string;
     obervacion_poblacion: number;
     obervacion_cria: string;
     obervacion_limpieza: string;
     obervacion_observaciones: string;
     obervacion_otra: string;
     obervacion_proximaRevision: string;
-    revision_fecha: string;
-    revision_fechaSigRevision: string;
-    revision_descripcion: string;
-    revision_lugar: string;
-    revision_completado: boolean;
+    gastos_prod1: string;
+    gastos_gasto1: string;
+    gastos_prod2: string;
+    gastos_gasto2: string;
+    produccion_tipoCosecha: string;
+    produccion_cantidadCosecha: string;
+    producccion_fechaCosecha: string;
     colmena: number;
 }
 

@@ -22,6 +22,15 @@ const bitacoraSchema = new mongoose_1.Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
+    registro_numCaja: {
+        type: String
+    },
+    registro_numColmenaOrigen: {
+        type: String
+    },
+    registro_fechaCreacion: {
+        type: String
+    },
     actividades_actividad: {
         type: String,
         required: [true, 'Obligatorio']
@@ -30,28 +39,19 @@ const bitacoraSchema = new mongoose_1.Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
-    actividades_cantidad: {
-        type: Number
-    },
     actividades_gasto: {
         type: Number
     },
-    cosecha_tipo: {
+    salud_plagas: {
         type: String
     },
-    cosecha_cantidad: {
+    salud_productoUtilizado: {
         type: Number
     },
-    cosecha_fecha: {
+    salud_dosisAplicada: {
         type: String
     },
-    gastos_concepto: {
-        type: String
-    },
-    gastos_cantidad: {
-        type: Number
-    },
-    gastos_fecha: {
+    salud_gasto: {
         type: String
     },
     obervacion_poblacion: {
@@ -74,19 +74,25 @@ const bitacoraSchema = new mongoose_1.Schema({
         type: String,
         required: [true, 'Obligatorio']
     },
-    revision_fecha: {
+    gastos_prod1: {
         type: String
     },
-    revision_fechaSigRevision: {
+    gastos_gasto1: {
         type: String
     },
-    revision_descripcion: {
+    gastos_prod2: {
         type: String
     },
-    revision_lugar: {
+    gastos_gasto2: {
         type: String
     },
-    revision_completado: {
+    produccion_tipoCosecha: {
+        type: Boolean
+    },
+    produccion_cantidadCosecha: {
+        type: Boolean
+    },
+    producccion_fechaCosecha: {
         type: Boolean
     },
     colmena: {
