@@ -44,8 +44,7 @@ binnacleRoutes.post('/new', verificaToken, (req: Request, res: Response) => {
         gastos_gasto2: req.body.gastos_gasto2,
         produccion_tipoCosecha: req.body.produccion_tipoCosecha,
         produccion_cantidadCosecha: req.body.produccion_cantidadCosecha,
-        producccion_fechaCosecha: req.body.producccion_fechaCosecha,
-        colmena: req.body.colmena
+        producccion_fechaCosecha: req.body.producccion_fechaCosecha
     };
     Bitacora.create(binnacle).then(binnacleDB => {
         res.json({

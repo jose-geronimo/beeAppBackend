@@ -92,10 +92,6 @@ const bitacoraSchema: Schema<IBitacora> = new Schema({
     },
     producccion_fechaCosecha:{
         type: Boolean
-    },
-    colmena:{
-        type: Number,
-        required: [true, 'Obligatorio'] 
     }
 });
 
@@ -128,7 +124,6 @@ interface IBitacora extends Document{
     produccion_tipoCosecha: string;
     produccion_cantidadCosecha: string;
     producccion_fechaCosecha: string;
-    colmena: number;
 }
 
 export const Bitacora = model<IBitacora>('Bitacora', bitacoraSchema);

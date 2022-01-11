@@ -94,10 +94,6 @@ const bitacoraSchema = new mongoose_1.Schema({
     },
     producccion_fechaCosecha: {
         type: Boolean
-    },
-    colmena: {
-        type: Number,
-        required: [true, 'Obligatorio']
     }
 });
 exports.Bitacora = (0, mongoose_1.model)('Bitacora', bitacoraSchema);
