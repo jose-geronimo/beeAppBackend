@@ -5,7 +5,7 @@ import { Bitacora } from "../models/bitacora.model";
 const binnacleRoutes = Router();
 
 //OBTENER BITACORA
-binnacleRoutes.get('/all', verificaToken, (req: Request, res: Response) => {
+binnacleRoutes.get('/all', (req: Request, res: Response) => {
     Bitacora.find()
         .then(results => {
             res.json({
@@ -15,7 +15,7 @@ binnacleRoutes.get('/all', verificaToken, (req: Request, res: Response) => {
 });
 
 //CREAR UNA BITACORA
-binnacleRoutes.post('/new', verificaToken, (req: Request, res: Response) => {
+binnacleRoutes.post('/new', (req: Request, res: Response) => {
     const binnacle = {
         responsable: req.body.responsable,
         ubicacion: req.body.ubicacion,
