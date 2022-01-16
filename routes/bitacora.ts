@@ -59,4 +59,15 @@ binnacleRoutes.post('/new', (req: Request, res: Response) => {
     });
 });
 
+
+//OBTENER BITACORA
+binnacleRoutes.get('/one/:id', (req: Request, res: Response) => {
+    Bitacora.find()
+        .then(results => {
+            res.json({
+                results: req.params.id
+            });
+        }).catch(error => console.error(error));
+});
+
 export default binnacleRoutes;

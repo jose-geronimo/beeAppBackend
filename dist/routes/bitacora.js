@@ -56,4 +56,13 @@ binnacleRoutes.post('/new', (req, res) => {
         });
     });
 });
+//OBTENER BITACORA
+binnacleRoutes.get('/one/:id', (req, res) => {
+    bitacora_model_1.Bitacora.find()
+        .then(results => {
+        res.json({
+            results: req.params.id
+        });
+    }).catch(error => console.error(error));
+});
 exports.default = binnacleRoutes;
